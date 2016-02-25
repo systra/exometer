@@ -37,8 +37,7 @@ CFG1 = case os:getenv("REBAR_DEPS") of
 
 Priv = filename:join(filename:dirname(SCRIPT), "priv").
 CFG2 = Script(Priv, "check_edown.script", [{'CONFIG', CFG1}]).
-CFG3 = Script(Priv, "check_packages.script", [{'CONFIG', CFG2}]).
-CFG4 = Script(Priv, "check_cover.script", [{'CONFIG', CFG3}]).
+CFG4 = Script(Priv, "check_cover.script", [{'CONFIG', CFG2}]).
 
 case os:getenv("EXOMETER_CONFIG_POSTPROCESS") of
     false  -> CFG4;
