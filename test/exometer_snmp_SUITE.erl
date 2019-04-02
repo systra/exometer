@@ -391,6 +391,8 @@ is_process_running(Name, Step, Count) ->
     end.
 
 reset_snmp_dirs(AgentConfPath, ManagerConfPath) ->
+    ct:log("AgentConfPath: ~p, ManagerConfPath: ~p~n", [AgentConfPath, ManagerConfPath]),
+    ct:log("pwd: ~p~n", [file:get_cwd()]),
     {ok, [AgentFileConf]} = file:consult(AgentConfPath),
     AgentDir0 = ?config(db_dir, ?config(agent, ?config(snmp, AgentFileConf))),
     del_dir(AgentDir0),
